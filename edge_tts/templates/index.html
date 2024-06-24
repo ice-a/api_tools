@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>镜像使用说明</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .content {
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #333;
+            color: #fff;
+        }
+
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px;
+                padding: 15px;
+            }
+
+            .header {
+                padding: 15px 0;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<div class="header">
+    <h1>镜像使用说明</h1>
+</div>
+<div class="container">
+    <div class="content">
+        <p>为了加速镜像拉取，你可以使用以下命令设置 registry mirror:</p>
+        <pre><code>config = {
+    "male": [
+            "zh-CN-YunjianNeural",
+            "zh-CN-YunxiNeural",
+            "zh-CN-YunxiaNeural",
+            "zh-CN-YunyangNeural",
+            "zh-HK-WanLungNeural",
+            "zh-TW-YunJheNeural",
+            "zu-ZA-ThembaNeural"],
+    "female": [
+            "zh-CN-XiaoxiaoNeural",
+            "zh-CN-XiaoyiNeural",
+            "zh-CN-liaoning-XiaobeiNeural",
+            "zh-CN-shaanxi-XiaoniNeural",
+            "zh-HK-HiuGaaiNeural",
+            "zh-HK-HiuMaanNeural",
+            "zh-TW-HsiaoChenNeural",
+            "zh-TW-HsiaoYuNeural",
+            "zu-ZA-ThandoNeural"]
+}</code></pre>
+        <p>请求方法:</p>
+        <pre><code>import requests
+import json
+
+url = "http://127.0.0.1:5000/generate_wav"
+
+payload = json.dumps({
+   "text": "你好，我是李大山",
+   "speaker_voice": "zh-TW-HsiaoChenNeural"
+})
+headers = {
+   'User-Agent': 'Apifox/1.0.0 (https://apifox.com)',
+   'Content-Type': 'application/json'
+}
+response = requests.request("POST", url, headers=headers, data=payload)
+print(response.text)</code></pre>
+    </div>
+</div>
+<div class="footer">
+    <p><a href="http://qd.lideshan.top/my/" target="_blank">自动化签到</a></p>
+    <p><a href="http://pan.lideshan.top/" target="_blank">木子的秘密</a></p>
+    <p><a href="https://cook.lideshan.top/" target="_blank">一位大厨的崛起之路</a></p>
+    <p><a href="https://tools.lideshan.top/" target="_blank">木子的工具箱</a></p>
+    <p><a href="https://eat.lideshan.top/" target="_blank">不知道吃什么就去看看</a></p>
+    <p><a href="https://remake.lideshan.top/public/index.html" target="_blank">重生之我在人间两万年</a></p>
+    <p><a href="https://ip.lideshan.top/" target="_blank">木子的ip信息,爆破他</a></p>
+    <p><a href="https://lideshan.top/" target="_blank">去访问有趣的木子</a></p>
+
+</div>
+</body>
+</html>
